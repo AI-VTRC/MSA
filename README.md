@@ -1,15 +1,16 @@
-# Model Specific AI Assurance - Minh Nguyen
+# Model Specific AI Assurance 
 
-## Neural Network
+## Neural Network - Minh Nguyen
 
 ### Design Pipeline
 ### Model
-- Deep NN
-- DenseNet121
+- [Deep NN](https://github.com/AI-VTRC/MSA/blob/neural_network/nn/model/pathology_dataset/utils/model/ekm.py)
+- [DenseNet121](https://github.com/AI-VTRC/MSA/blob/neural_network/nn/model/pathology_dataset/utils/model/dense_net.py)
 ### Security
 
 ### XAI
 
+### Test-bench
 ## Reinforcement Learning - Nitish Gorentala
 
 ## Genetic Algorithms - Ashita Anuga
