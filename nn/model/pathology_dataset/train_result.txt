@@ -1,0 +1,752 @@
+(gb) mnguyen@gb4:~/projects/aia/pathology_dataset$ python main.py 
+2021-06-27 20:59:44.609628: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
+  image_id  healthy  multiple_diseases  rust  scab
+0  Train_0        0                  0     0     1
+1  Train_1        0                  1     0     0
+2  Train_2        1                  0     0     0
+3  Train_3        0                  0     1     0
+4  Train_4        1                  0     0     0
+------------------------------------------
+       image_id  healthy  multiple_diseases  rust  scab
+0        Test_0     0.25               0.25  0.25  0.25
+1        Test_1     0.25               0.25  0.25  0.25
+2        Test_2     0.25               0.25  0.25  0.25
+3        Test_3     0.25               0.25  0.25  0.25
+4        Test_4     0.25               0.25  0.25  0.25
+...         ...      ...                ...   ...   ...
+1816  Test_1816     0.25               0.25  0.25  0.25
+1817  Test_1817     0.25               0.25  0.25  0.25
+1818  Test_1818     0.25               0.25  0.25  0.25
+1819  Test_1819     0.25               0.25  0.25  0.25
+1820  Test_1820     0.25               0.25  0.25  0.25
+
+[1821 rows x 5 columns]
+------------------------------------------
+                                            image_id
+0  ../pathology_dataset/dataset/working/test_imag...
+1  ../pathology_dataset/dataset/working/test_imag...
+2  ../pathology_dataset/dataset/working/test_imag...
+3  ../pathology_dataset/dataset/working/test_imag...
+4  ../pathology_dataset/dataset/working/test_imag...
+Folder already exist
+[Errno 17] File exists: '../pathology_dataset/dataset/classes_split/train'
+516 91 622 592
+
+Data Generator --------------------------------------------------
+Loading Data...
+Found 1821 files belonging to 4 classes.
+Using 1457 files for training.
+2021-06-27 20:59:45.373765: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcuda.so.1
+2021-06-27 20:59:45.431220: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1733] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: NVIDIA Quadro RTX 8000 computeCapability: 7.5
+coreClock: 1.77GHz coreCount: 72 deviceMemorySize: 47.46GiB deviceMemoryBandwidth: 625.94GiB/s
+2021-06-27 20:59:45.431284: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-06-27 20:59:45.431773: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1733] Found device 1 with properties: 
+pciBusID: 0000:21:00.0 name: NVIDIA GeForce RTX 2070 SUPER computeCapability: 7.5
+coreClock: 1.77GHz coreCount: 40 deviceMemorySize: 7.79GiB deviceMemoryBandwidth: 417.29GiB/s
+2021-06-27 20:59:45.431792: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
+2021-06-27 20:59:45.451425: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublas.so.11
+2021-06-27 20:59:45.451485: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublasLt.so.11
+2021-06-27 20:59:45.461250: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcufft.so.10
+2021-06-27 20:59:45.464892: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcurand.so.10
+2021-06-27 20:59:45.468750: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcusolver.so.11
+2021-06-27 20:59:45.475899: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcusparse.so.11
+2021-06-27 20:59:45.476057: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2021-06-27 20:59:45.476073: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1766] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2021-06-27 20:59:45.476392: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-06-27 20:59:45.480918: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1258] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-06-27 20:59:45.480935: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1264]      
+Found 1821 files belonging to 4 classes.
+Using 364 files for validation.
+Augmenting train...
+2021-06-27 20:59:45.576888: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-06-27 20:59:45.578888: I tensorflow/core/platform/profile_utils/cpu_utils.cc:114] CPU Frequency: 2900080000 Hz
+x done
+(1457, 200, 200, 3) (1457,)
+Class distribution before SMOTE =  [407  74 501 475]
+Flattened
+Total_train after smote =  (2004, 200, 200, 3)
+Class distribution after SMOTE =  [501 501 501 501]
+Train augmented, augmenting val...
+(364, 200, 200, 3) (364,) (364, 4)
+Returning
+Loading data...
+Found 1821 files belonging to 4 classes.
+Augmenting train...
+(1821, 200, 200, 3) (1821,)
+Class distribution before smote =  [516  91 622 592]
+Flattened
+Class distribution after smote =  [622 622 622 622]
+Total_train after smote =  (2488, 200, 200, 3)
+
+SVD --------------------------------------------------
+
+PCA --------------------------------------------------
+
+Model Training --------------------------------------------------
+/home/mnguyen/anaconda3/envs/gb/lib/python3.9/site-packages/tensorflow/python/keras/optimizer_v2/optimizer_v2.py:374: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+  warnings.warn(
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten (Flatten)            (None, 6400)              0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               819328    
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dropout (Dropout)            (None, 128)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+/home/mnguyen/anaconda3/envs/gb/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:1940: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  warnings.warn('`Model.fit_generator` is deprecated and '
+
+
+drop  =  0.0 done, next...
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_4 (Conv2D)            (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_5 (MaxPooling2 (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_6 (Conv2D)            (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_6 (MaxPooling2 (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_7 (Conv2D)            (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_7 (MaxPooling2 (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_2 (Flatten)          (None, 6400)              0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 128)               819328    
+_________________________________________________________________
+flatten_3 (Flatten)          (None, 128)               0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+^[  
+
+
+
+drop  =  0.1 done, next...
+Model: "sequential_2"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_8 (Conv2D)            (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_8 (MaxPooling2 (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_9 (Conv2D)            (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_9 (MaxPooling2 (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_10 (Conv2D)           (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_10 (MaxPooling (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_11 (Conv2D)           (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_11 (MaxPooling (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_4 (Flatten)          (None, 6400)              0         
+_________________________________________________________________
+dense_6 (Dense)              (None, 128)               819328    
+_________________________________________________________________
+flatten_5 (Flatten)          (None, 128)               0         
+_________________________________________________________________
+dense_7 (Dense)              (None, 128)               16512     
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_8 (Dense)              (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+drop  =  0.2 done, next...
+Model: "sequential_3"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_12 (Conv2D)           (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_12 (MaxPooling (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_13 (Conv2D)           (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_13 (MaxPooling (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_14 (Conv2D)           (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_14 (MaxPooling (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_15 (Conv2D)           (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_15 (MaxPooling (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_6 (Flatten)          (None, 6400)              0         
+_________________________________________________________________
+dense_9 (Dense)              (None, 128)               819328    
+_________________________________________________________________
+flatten_7 (Flatten)          (None, 128)               0         
+_________________________________________________________________
+dense_10 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_11 (Dense)             (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+drop  =  0.3 done, next...
+Model: "sequential_4"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_16 (Conv2D)           (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_16 (MaxPooling (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_17 (Conv2D)           (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_17 (MaxPooling (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_18 (Conv2D)           (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_18 (MaxPooling (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_19 (Conv2D)           (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_19 (MaxPooling (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_8 (Flatten)          (None, 6400)              0         
+_________________________________________________________________
+dense_12 (Dense)             (None, 128)               819328    
+_________________________________________________________________
+flatten_9 (Flatten)          (None, 128)               0         
+_________________________________________________________________
+dense_13 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_14 (Dense)             (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+drop  =  0.4 done, next...
+Model: "sequential_5"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_20 (Conv2D)           (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_20 (MaxPooling (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_21 (Conv2D)           (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_21 (MaxPooling (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_22 (Conv2D)           (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_22 (MaxPooling (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_23 (Conv2D)           (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_23 (MaxPooling (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_10 (Flatten)         (None, 6400)              0         
+_________________________________________________________________
+dense_15 (Dense)             (None, 128)               819328    
+_________________________________________________________________
+flatten_11 (Flatten)         (None, 128)               0         
+_________________________________________________________________
+dense_16 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_17 (Dense)             (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+drop  =  0.5 done, next...
+Model: "sequential_6"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_24 (Conv2D)           (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_24 (MaxPooling (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_25 (Conv2D)           (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_25 (MaxPooling (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_26 (Conv2D)           (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_26 (MaxPooling (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_27 (Conv2D)           (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_27 (MaxPooling (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_12 (Flatten)         (None, 6400)              0         
+_________________________________________________________________
+dense_18 (Dense)             (None, 128)               819328    
+_________________________________________________________________
+flatten_13 (Flatten)         (None, 128)               0         
+_________________________________________________________________
+dense_19 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dropout_6 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_20 (Dense)             (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+drop  =  0.6 done, next...
+Model: "sequential_7"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_28 (Conv2D)           (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_28 (MaxPooling (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_29 (Conv2D)           (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_29 (MaxPooling (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_30 (Conv2D)           (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_30 (MaxPooling (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_31 (Conv2D)           (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_31 (MaxPooling (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_14 (Flatten)         (None, 6400)              0         
+_________________________________________________________________
+dense_21 (Dense)             (None, 128)               819328    
+_________________________________________________________________
+flatten_15 (Flatten)         (None, 128)               0         
+_________________________________________________________________
+dense_22 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dropout_7 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_23 (Dense)             (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+drop  =  0.7 done, next...
+Model: "sequential_8"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_32 (Conv2D)           (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_32 (MaxPooling (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_33 (Conv2D)           (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_33 (MaxPooling (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_34 (Conv2D)           (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_34 (MaxPooling (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_35 (Conv2D)           (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_35 (MaxPooling (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_16 (Flatten)         (None, 6400)              0         
+_________________________________________________________________
+dense_24 (Dense)             (None, 128)               819328    
+_________________________________________________________________
+flatten_17 (Flatten)         (None, 128)               0         
+_________________________________________________________________
+dense_25 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dropout_8 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_26 (Dense)             (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+drop  =  0.8 done, next...
+Model: "sequential_9"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_36 (Conv2D)           (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_36 (MaxPooling (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_37 (Conv2D)           (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_37 (MaxPooling (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_38 (Conv2D)           (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_38 (MaxPooling (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_39 (Conv2D)           (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_39 (MaxPooling (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_18 (Flatten)         (None, 6400)              0         
+_________________________________________________________________
+dense_27 (Dense)             (None, 128)               819328    
+_________________________________________________________________
+flatten_19 (Flatten)         (None, 128)               0         
+_________________________________________________________________
+dense_28 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dropout_9 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_29 (Dense)             (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+drop  =  0.9 done, next...
+best drop =  0.7 best epochs =  25 best_weights =  ../pathology_dataset/saved_model/drop7.hdf5
+Model: "sequential_10"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_40 (Conv2D)           (None, 198, 198, 16)      448       
+_________________________________________________________________
+max_pooling2d_40 (MaxPooling (None, 99, 99, 16)        0         
+_________________________________________________________________
+conv2d_41 (Conv2D)           (None, 97, 97, 32)        4640      
+_________________________________________________________________
+max_pooling2d_41 (MaxPooling (None, 48, 48, 32)        0         
+_________________________________________________________________
+conv2d_42 (Conv2D)           (None, 46, 46, 64)        18496     
+_________________________________________________________________
+max_pooling2d_42 (MaxPooling (None, 23, 23, 64)        0         
+_________________________________________________________________
+conv2d_43 (Conv2D)           (None, 21, 21, 64)        36928     
+_________________________________________________________________
+max_pooling2d_43 (MaxPooling (None, 10, 10, 64)        0         
+_________________________________________________________________
+flatten_20 (Flatten)         (None, 6400)              0         
+_________________________________________________________________
+dense_30 (Dense)             (None, 128)               819328    
+_________________________________________________________________
+flatten_21 (Flatten)         (None, 128)               0         
+_________________________________________________________________
+dense_31 (Dense)             (None, 128)               16512     
+_________________________________________________________________
+dropout_10 (Dropout)         (None, 128)               0         
+_________________________________________________________________
+dense_32 (Dense)             (None, 4)                 516       
+=================================================================
+Total params: 896,868
+Trainable params: 896,868
+Non-trainable params: 0
+_________________________________________________________________
+None
+Epoch 1/80
+62/62 [==============================] - 12s 184ms/step - loss: 1.4022 - categorical_accuracy: 0.2373 - categorical_auc: 0.4861 - val_loss: 1.3825 - val_categorical_accuracy: 0.3379 - val_categorical_auc: 0.4979
+Epoch 2/80
+62/62 [==============================] - 11s 177ms/step - loss: 1.3887 - categorical_accuracy: 0.2713 - categorical_auc: 0.5157 - val_loss: 1.3755 - val_categorical_accuracy: 0.4478 - val_categorical_auc: 0.5659
+Epoch 3/80
+62/62 [==============================] - 11s 175ms/step - loss: 1.3686 - categorical_accuracy: 0.3078 - categorical_auc: 0.5725 - val_loss: 1.2973 - val_categorical_accuracy: 0.4341 - val_categorical_auc: 0.6030
+Epoch 4/80
+62/62 [==============================] - 11s 176ms/step - loss: 1.3171 - categorical_accuracy: 0.3859 - categorical_auc: 0.6593 - val_loss: 1.1718 - val_categorical_accuracy: 0.5000 - val_categorical_auc: 0.7043
+Epoch 5/80
+62/62 [==============================] - 11s 174ms/step - loss: 1.2386 - categorical_accuracy: 0.4290 - categorical_auc: 0.7006 - val_loss: 1.0563 - val_categorical_accuracy: 0.6181 - val_categorical_auc: 0.7376
+Epoch 6/80
+62/62 [==============================] - 11s 175ms/step - loss: 1.1429 - categorical_accuracy: 0.4904 - categorical_auc: 0.7475 - val_loss: 1.0601 - val_categorical_accuracy: 0.5440 - val_categorical_auc: 0.7868
+Epoch 7/80
+62/62 [==============================] - 11s 176ms/step - loss: 1.0500 - categorical_accuracy: 0.5350 - categorical_auc: 0.7958 - val_loss: 0.8192 - val_categorical_accuracy: 0.6978 - val_categorical_auc: 0.7926
+Epoch 8/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.9639 - categorical_accuracy: 0.5842 - categorical_auc: 0.8188 - val_loss: 0.7406 - val_categorical_accuracy: 0.6896 - val_categorical_auc: 0.7954
+Epoch 9/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.9181 - categorical_accuracy: 0.6085 - categorical_auc: 0.8322 - val_loss: 0.7909 - val_categorical_accuracy: 0.6566 - val_categorical_auc: 0.7923
+Epoch 10/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.8537 - categorical_accuracy: 0.6324 - categorical_auc: 0.8542 - val_loss: 1.2360 - val_categorical_accuracy: 0.3791 - val_categorical_auc: 0.7623
+Epoch 11/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.8098 - categorical_accuracy: 0.6552 - categorical_auc: 0.8711 - val_loss: 0.6804 - val_categorical_accuracy: 0.7445 - val_categorical_auc: 0.8172
+Epoch 12/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.7780 - categorical_accuracy: 0.6673 - categorical_auc: 0.8808 - val_loss: 1.1845 - val_categorical_accuracy: 0.4478 - val_categorical_auc: 0.7779
+Epoch 13/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.7577 - categorical_accuracy: 0.6709 - categorical_auc: 0.8820 - val_loss: 0.9779 - val_categorical_accuracy: 0.6236 - val_categorical_auc: 0.8149
+Epoch 14/80
+62/62 [==============================] - 11s 175ms/step - loss: 0.6871 - categorical_accuracy: 0.7140 - categorical_auc: 0.9059 - val_loss: 0.6481 - val_categorical_accuracy: 0.7445 - val_categorical_auc: 0.8310
+Epoch 15/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.6343 - categorical_accuracy: 0.7358 - categorical_auc: 0.9174 - val_loss: 0.7415 - val_categorical_accuracy: 0.7170 - val_categorical_auc: 0.8228
+Epoch 16/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.5801 - categorical_accuracy: 0.7667 - categorical_auc: 0.9318 - val_loss: 0.7358 - val_categorical_accuracy: 0.7390 - val_categorical_auc: 0.8166
+Epoch 17/80
+62/62 [==============================] - 11s 175ms/step - loss: 0.5684 - categorical_accuracy: 0.7723 - categorical_auc: 0.9353 - val_loss: 0.6732 - val_categorical_accuracy: 0.7527 - val_categorical_auc: 0.8394
+Epoch 18/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.4966 - categorical_accuracy: 0.8043 - categorical_auc: 0.9500 - val_loss: 0.7638 - val_categorical_accuracy: 0.7143 - val_categorical_auc: 0.8298
+Epoch 19/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.4729 - categorical_accuracy: 0.8154 - categorical_auc: 0.9550 - val_loss: 0.8149 - val_categorical_accuracy: 0.6731 - val_categorical_auc: 0.8373
+Epoch 20/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.4241 - categorical_accuracy: 0.8479 - categorical_auc: 0.9630 - val_loss: 0.7540 - val_categorical_accuracy: 0.7445 - val_categorical_auc: 0.8454
+Epoch 21/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.3881 - categorical_accuracy: 0.8448 - categorical_auc: 0.9680 - val_loss: 1.0283 - val_categorical_accuracy: 0.7005 - val_categorical_auc: 0.8113
+Epoch 22/80
+62/62 [==============================] - 11s 180ms/step - loss: 0.3513 - categorical_accuracy: 0.8710 - categorical_auc: 0.9744 - val_loss: 1.0488 - val_categorical_accuracy: 0.7335 - val_categorical_auc: 0.8201
+Epoch 23/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.2942 - categorical_accuracy: 0.8962 - categorical_auc: 0.9821 - val_loss: 1.0735 - val_categorical_accuracy: 0.7280 - val_categorical_auc: 0.8211
+Epoch 24/80
+62/62 [==============================] - 11s 175ms/step - loss: 0.2878 - categorical_accuracy: 0.8976 - categorical_auc: 0.9827 - val_loss: 1.1418 - val_categorical_accuracy: 0.6896 - val_categorical_auc: 0.8100
+Epoch 25/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.2349 - categorical_accuracy: 0.9133 - categorical_auc: 0.9878 - val_loss: 1.5181 - val_categorical_accuracy: 0.6456 - val_categorical_auc: 0.8403
+Epoch 26/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.1953 - categorical_accuracy: 0.9361 - categorical_auc: 0.9915 - val_loss: 1.1823 - val_categorical_accuracy: 0.7363 - val_categorical_auc: 0.8206
+Epoch 27/80
+62/62 [==============================] - 11s 175ms/step - loss: 0.1944 - categorical_accuracy: 0.9361 - categorical_auc: 0.9919 - val_loss: 1.1554 - val_categorical_accuracy: 0.6813 - val_categorical_auc: 0.8311
+Epoch 28/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.1423 - categorical_accuracy: 0.9539 - categorical_auc: 0.9946 - val_loss: 1.3802 - val_categorical_accuracy: 0.7005 - val_categorical_auc: 0.8302
+Epoch 29/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.1210 - categorical_accuracy: 0.9584 - categorical_auc: 0.9966 - val_loss: 1.5182 - val_categorical_accuracy: 0.6951 - val_categorical_auc: 0.8148
+Epoch 30/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.1119 - categorical_accuracy: 0.9675 - categorical_auc: 0.9962 - val_loss: 1.9296 - val_categorical_accuracy: 0.6703 - val_categorical_auc: 0.8186
+Epoch 31/80
+62/62 [==============================] - 11s 175ms/step - loss: 0.1289 - categorical_accuracy: 0.9640 - categorical_auc: 0.9940 - val_loss: 1.6613 - val_categorical_accuracy: 0.7143 - val_categorical_auc: 0.8119
+Epoch 32/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0645 - categorical_accuracy: 0.9807 - categorical_auc: 0.9987 - val_loss: 2.0157 - val_categorical_accuracy: 0.7005 - val_categorical_auc: 0.8092
+Epoch 33/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0903 - categorical_accuracy: 0.9736 - categorical_auc: 0.9971 - val_loss: 1.7757 - val_categorical_accuracy: 0.7308 - val_categorical_auc: 0.8212
+Epoch 34/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0572 - categorical_accuracy: 0.9807 - categorical_auc: 0.9990 - val_loss: 2.5439 - val_categorical_accuracy: 0.7005 - val_categorical_auc: 0.7727
+Epoch 35/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0554 - categorical_accuracy: 0.9807 - categorical_auc: 0.9991 - val_loss: 2.6400 - val_categorical_accuracy: 0.6566 - val_categorical_auc: 0.8027
+Epoch 36/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0725 - categorical_accuracy: 0.9807 - categorical_auc: 0.9978 - val_loss: 2.6460 - val_categorical_accuracy: 0.6401 - val_categorical_auc: 0.7993
+Epoch 37/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.0549 - categorical_accuracy: 0.9848 - categorical_auc: 0.9988 - val_loss: 2.2200 - val_categorical_accuracy: 0.7115 - val_categorical_auc: 0.8039
+Epoch 38/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0783 - categorical_accuracy: 0.9853 - categorical_auc: 0.9971 - val_loss: 2.5254 - val_categorical_accuracy: 0.7143 - val_categorical_auc: 0.8162
+Epoch 39/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.0662 - categorical_accuracy: 0.9807 - categorical_auc: 0.9977 - val_loss: 2.9819 - val_categorical_accuracy: 0.6346 - val_categorical_auc: 0.7822
+Epoch 40/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0481 - categorical_accuracy: 0.9894 - categorical_auc: 0.9988 - val_loss: 2.3403 - val_categorical_accuracy: 0.6401 - val_categorical_auc: 0.8100
+Epoch 41/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.0425 - categorical_accuracy: 0.9888 - categorical_auc: 0.9989 - val_loss: 2.3137 - val_categorical_accuracy: 0.6786 - val_categorical_auc: 0.8147
+Epoch 42/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0278 - categorical_accuracy: 0.9929 - categorical_auc: 0.9996 - val_loss: 2.4165 - val_categorical_accuracy: 0.6951 - val_categorical_auc: 0.8033
+Epoch 43/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0212 - categorical_accuracy: 0.9949 - categorical_auc: 0.9996 - val_loss: 3.1671 - val_categorical_accuracy: 0.6786 - val_categorical_auc: 0.7931
+Epoch 44/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0382 - categorical_accuracy: 0.9894 - categorical_auc: 0.9991 - val_loss: 2.8187 - val_categorical_accuracy: 0.6786 - val_categorical_auc: 0.7938
+Epoch 45/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0372 - categorical_accuracy: 0.9899 - categorical_auc: 0.9982 - val_loss: 2.7687 - val_categorical_accuracy: 0.7143 - val_categorical_auc: 0.8065
+Epoch 46/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0633 - categorical_accuracy: 0.9899 - categorical_auc: 0.9973 - val_loss: 2.8107 - val_categorical_accuracy: 0.6896 - val_categorical_auc: 0.7970
+Epoch 47/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0350 - categorical_accuracy: 0.9919 - categorical_auc: 0.9988 - val_loss: 3.2888 - val_categorical_accuracy: 0.6593 - val_categorical_auc: 0.7864
+Epoch 48/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.0153 - categorical_accuracy: 0.9959 - categorical_auc: 0.9996 - val_loss: 3.5967 - val_categorical_accuracy: 0.6868 - val_categorical_auc: 0.7834
+Epoch 49/80
+62/62 [==============================] - 11s 180ms/step - loss: 0.0204 - categorical_accuracy: 0.9929 - categorical_auc: 0.9999 - val_loss: 3.5593 - val_categorical_accuracy: 0.6896 - val_categorical_auc: 0.8131
+Epoch 50/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0174 - categorical_accuracy: 0.9944 - categorical_auc: 0.9999 - val_loss: 3.4717 - val_categorical_accuracy: 0.6731 - val_categorical_auc: 0.7871
+Epoch 51/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0336 - categorical_accuracy: 0.9914 - categorical_auc: 0.9988 - val_loss: 3.1423 - val_categorical_accuracy: 0.6868 - val_categorical_auc: 0.7998
+Epoch 52/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0028 - categorical_accuracy: 0.9995 - categorical_auc: 1.0000 - val_loss: 4.1957 - val_categorical_accuracy: 0.6868 - val_categorical_auc: 0.7919
+Epoch 53/80
+62/62 [==============================] - 11s 180ms/step - loss: 0.0249 - categorical_accuracy: 0.9929 - categorical_auc: 0.9993 - val_loss: 3.0928 - val_categorical_accuracy: 0.7308 - val_categorical_auc: 0.8142
+Epoch 54/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0137 - categorical_accuracy: 0.9954 - categorical_auc: 0.9999 - val_loss: 2.8557 - val_categorical_accuracy: 0.7115 - val_categorical_auc: 0.8093
+Epoch 55/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0532 - categorical_accuracy: 0.9914 - categorical_auc: 0.9976 - val_loss: 3.0011 - val_categorical_accuracy: 0.7005 - val_categorical_auc: 0.7936
+Epoch 56/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0253 - categorical_accuracy: 0.9909 - categorical_auc: 0.9995 - val_loss: 3.0379 - val_categorical_accuracy: 0.7005 - val_categorical_auc: 0.8110
+Epoch 57/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0139 - categorical_accuracy: 0.9970 - categorical_auc: 0.9996 - val_loss: 3.0774 - val_categorical_accuracy: 0.7198 - val_categorical_auc: 0.8005
+Epoch 58/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0681 - categorical_accuracy: 0.9934 - categorical_auc: 0.9982 - val_loss: 2.8381 - val_categorical_accuracy: 0.7198 - val_categorical_auc: 0.8013
+Epoch 59/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0151 - categorical_accuracy: 0.9954 - categorical_auc: 0.9996 - val_loss: 3.4014 - val_categorical_accuracy: 0.7033 - val_categorical_auc: 0.7978
+Epoch 60/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0304 - categorical_accuracy: 0.9934 - categorical_auc: 0.9987 - val_loss: 3.0005 - val_categorical_accuracy: 0.7088 - val_categorical_auc: 0.8008
+Epoch 61/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0025 - categorical_accuracy: 1.0000 - categorical_auc: 1.0000 - val_loss: 4.2336 - val_categorical_accuracy: 0.7060 - val_categorical_auc: 0.7873
+Epoch 62/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0375 - categorical_accuracy: 0.9949 - categorical_auc: 0.9992 - val_loss: 4.1024 - val_categorical_accuracy: 0.6484 - val_categorical_auc: 0.7639
+Epoch 63/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.0292 - categorical_accuracy: 0.9919 - categorical_auc: 0.9985 - val_loss: 3.2553 - val_categorical_accuracy: 0.7143 - val_categorical_auc: 0.7975
+Epoch 64/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0040 - categorical_accuracy: 0.9980 - categorical_auc: 1.0000 - val_loss: 3.4866 - val_categorical_accuracy: 0.7033 - val_categorical_auc: 0.7948
+Epoch 65/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0316 - categorical_accuracy: 0.9894 - categorical_auc: 0.9995 - val_loss: 4.0746 - val_categorical_accuracy: 0.6566 - val_categorical_auc: 0.7660
+Epoch 66/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0704 - categorical_accuracy: 0.9899 - categorical_auc: 0.9965 - val_loss: 3.2922 - val_categorical_accuracy: 0.6868 - val_categorical_auc: 0.7917
+Epoch 67/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0124 - categorical_accuracy: 0.9970 - categorical_auc: 0.9996 - val_loss: 4.1292 - val_categorical_accuracy: 0.7060 - val_categorical_auc: 0.7862
+Epoch 68/80
+62/62 [==============================] - 11s 179ms/step - loss: 0.0115 - categorical_accuracy: 0.9965 - categorical_auc: 1.0000 - val_loss: 3.6853 - val_categorical_accuracy: 0.7253 - val_categorical_auc: 0.8042
+Epoch 69/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0244 - categorical_accuracy: 0.9914 - categorical_auc: 0.9989 - val_loss: 3.3848 - val_categorical_accuracy: 0.7033 - val_categorical_auc: 0.7990
+Epoch 70/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0241 - categorical_accuracy: 0.9914 - categorical_auc: 0.9996 - val_loss: 3.4225 - val_categorical_accuracy: 0.6951 - val_categorical_auc: 0.8076
+Epoch 71/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0041 - categorical_accuracy: 0.9985 - categorical_auc: 1.0000 - val_loss: 5.0060 - val_categorical_accuracy: 0.6648 - val_categorical_auc: 0.7695
+Epoch 72/80
+62/62 [==============================] - 11s 176ms/step - loss: 0.0300 - categorical_accuracy: 0.9939 - categorical_auc: 0.9979 - val_loss: 3.9952 - val_categorical_accuracy: 0.6731 - val_categorical_auc: 0.7613
+Epoch 73/80
+62/62 [==============================] - 11s 180ms/step - loss: 0.0138 - categorical_accuracy: 0.9985 - categorical_auc: 0.9997 - val_loss: 3.6604 - val_categorical_accuracy: 0.6896 - val_categorical_auc: 0.7826
+Epoch 74/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0203 - categorical_accuracy: 0.9965 - categorical_auc: 0.9993 - val_loss: 3.6889 - val_categorical_accuracy: 0.6648 - val_categorical_auc: 0.7856
+Epoch 75/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0133 - categorical_accuracy: 0.9970 - categorical_auc: 0.9993 - val_loss: 3.8074 - val_categorical_accuracy: 0.6923 - val_categorical_auc: 0.7865
+Epoch 76/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0241 - categorical_accuracy: 0.9965 - categorical_auc: 0.9993 - val_loss: 4.6507 - val_categorical_accuracy: 0.6593 - val_categorical_auc: 0.7622
+Epoch 77/80
+62/62 [==============================] - 11s 178ms/step - loss: 0.0218 - categorical_accuracy: 0.9965 - categorical_auc: 0.9993 - val_loss: 3.9816 - val_categorical_accuracy: 0.6896 - val_categorical_auc: 0.7917
+Epoch 78/80
+62/62 [==============================] - 11s 178ms/step - loss: 7.0567e-04 - categorical_accuracy: 1.0000 - categorical_auc: 1.0000 - val_loss: 4.3981 - val_categorical_accuracy: 0.6896 - val_categorical_auc: 0.7978
+Epoch 79/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0229 - categorical_accuracy: 0.9944 - categorical_auc: 0.9993 - val_loss: 4.0083 - val_categorical_accuracy: 0.7143 - val_categorical_auc: 0.7890
+Epoch 80/80
+62/62 [==============================] - 11s 177ms/step - loss: 0.0053 - categorical_accuracy: 0.9980 - categorical_auc: 1.0000 - val_loss: 4.1922 - val_categorical_accuracy: 0.7005 - val_categorical_auc: 0.8089
+Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/densenet/densenet121_weights_tf_dim_ordering_tf_kernels_notop.h5
+29089792/29084464 [==============================] - 1s 0us/step
+Model: "sequential_11"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+densenet121 (Functional)     (None, 6, 6, 1024)        7037504   
+_________________________________________________________________
+global_average_pooling2d (Gl (None, 1024)              0         
+_________________________________________________________________
+dense_33 (Dense)             (None, 4)                 4100      
+=================================================================
+Total params: 7,041,604
+Trainable params: 6,957,956
+Non-trainable params: 83,648
+_________________________________________________________________
+None
+Epoch 1/20
+62/62 [==============================] - 166s 3s/step - loss: 1.0584 - categorical_accuracy: 0.5928 - categorical_auc: 0.8034 - val_loss: 3.4844 - val_categorical_accuracy: 0.3269 - val_categorical_auc: 0.5748
+Epoch 2/20
+62/62 [==============================] - 158s 3s/step - loss: 0.7581 - categorical_accuracy: 0.7165 - categorical_auc: 0.8852 - val_loss: 1.1987 - val_categorical_accuracy: 0.6126 - val_categorical_auc: 0.8643
+Epoch 3/20
+54/62 [=========================>....] - ETA: 19s - loss: 0.5888 - categorical_accuracy: 0.8153 - categorica55/62 [=========================>....] - ETA: 17s - loss: 0.5889 - categorical_accuracy: 0.8152 - categorica56/62 [==========================>...] - ETA: 14s - loss: 0.5844 - categorical_accuracy: 0.8174 - categorica57/62 [==========================>...] - ETA: 12s - loss: 0.5792 - categorical_accuracy: 0.8184 - categorica58/62 [===========================>..] - ETA: 9s - loss: 0.5890 - categorical_accuracy: 0.8113 - categorical59/62 [===========================>..] - ETA: 7s - loss: 0.5856 - categorical_accuracy: 0.8113 - categorical60/62 [============================>.] - ETA: 4s - loss: 0.5834 - categorical_accuracy: 0.8108 - categorical61/62 [============================>.] - ETA: 2s - loss: 0.5767 - categorical_accuracy: 0.8134 - categorical62/62 [==============================] - ETA: 0s - loss: 0.5975 - categorical_accuracy: 0.8058 - categorical62/62 [==============================] - 157s 3s/step - loss: 0.5975 - categorical_accuracy: 0.8058 - categorical_auc: 0.9328 - val_loss: 1.3803 - val_categorical_accuracy: 0.6374 - val_categorical_auc: 0.8576
+Epoch 4/20
+62/62 [==============================] - 156s 3s/step - loss: 0.4518 - categorical_accuracy: 0.8550 - categorical_auc: 0.9605 - val_loss: 1.0522 - val_categorical_accuracy: 0.6291 - val_categorical_auc: 0.8551
+Epoch 5/20
+62/62 [==============================] - 155s 3s/step - loss: 0.4265 - categorical_accuracy: 0.8839 - categorical_auc: 0.9628 - val_loss: 0.5796 - val_categorical_accuracy: 0.8132 - val_categorical_auc: 0.9230
+Epoch 6/20
+ 1/62 [..............................] - ETA: 2:34 - loss: 0.0482 - categorical_accuracy: 1.0000 - categorical_ 2/62 [..............................] - ETA: 2:26 - loss: 0.1755 - categorical_accuracy: 0.9531 - categorical_ 3/62 [>.............................] - ETA: 2:24 - loss: 0.1527 - categorical_accuracy: 0.9583 - categorical_ 4/62 [>.............................] - ETA: 2:22 - loss: 0.1195 - categorical_accuracy: 0.9688 - categorical_ 5/62 [=>............................] - ETA: 2:20 - loss: 0.2092 - categorical_accuracy: 0.9375 - categorical_ 6/62 [=>............................] - ETA: 2:18 - loss: 0.2449 - categorical_accuracy: 0.9375 - categorical_ 7/62 [==>...........................] - ETA: 2:15 - loss: 0.2227 - categorical_accuracy: 0.9464 - categorical_ 8/62 [==>...........................] - ETA: 2:13 - loss: 0.2342 - categorical_accuracy: 0.9414 - categorical_ 9/62 [===>..........................] - ETA: 2:10 - loss: 0.2315 - categorical_accuracy: 0.9444 - categorical_10/62 [===>..........................] - ETA: 2:08 - loss: 0.251862/62 [==============================] - 155s 3s/step - loss: 0.3132 - categorical_accuracy: 0.9118 - categorical_auc: 0.9783 - val_loss: 0.6040 - val_categorical_accuracy: 0.7747 - val_categorical_auc: 0.9427
+Epoch 7/20
+62/62 [==============================] - 156s 3s/step - loss: 0.1958 - categorical_accuracy: 0.9498 - categorical_auc: 0.9900 - val_loss: 0.3031 - val_categorical_accuracy: 0.9203 - val_categorical_auc: 0.9711
+Epoch 8/20
+62/62 [==============================] - 157s 3s/step - loss: 0.2838 - categorical_accuracy: 0.9143 - categorical_auc: 0.9823 - val_loss: 1.6301 - val_categorical_accuracy: 0.5907 - val_categorical_auc: 0.7959
+Epoch 9/20
+62/62 [==============================] - 156s 3s/step - loss: 0.3287 - categorical_accuracy: 0.9057 - categorical_auc: 0.9772 - val_loss: 1.1168 - val_categorical_accuracy: 0.7500 - val_categorical_auc: 0.8617
+Epoch 10/20
+62/62 [==============================] - 156s 3s/step - loss: 0.3099 - categorical_accuracy: 0.9097 - categorical_auc: 0.9802 - val_loss: 1.2134 - val_categorical_accuracy: 0.7253 - val_categorical_auc: 0.9132
+Epoch 11/20
+62/62 [==============================] - 156s 3s/step - loss: 0.2348 - categorical_accuracy: 0.9366 - categorical_auc: 0.9870 - val_loss: 0.3267 - val_categorical_accuracy: 0.9011 - val_categorical_auc: 0.9543
+Epoch 12/20
+62/62 [==============================] - 155s 3s/step - loss: 0.2490 - categorical_accuracy: 0.9260 - categorical_auc: 0.9867 - val_loss: 0.6905 - val_categorical_accuracy: 0.8077 - val_categorical_auc: 0.9065
+Epoch 13/20
+62/62 [==============================] - 156s 3s/step - loss: 0.1863 - categorical_accuracy: 0.9554 - categorical_auc: 0.9924 - val_loss: 0.4765 - val_categorical_accuracy: 0.8764 - val_categorical_auc: 0.9338
+Epoch 14/20
+62/62 [==============================] - 156s 3s/step - loss: 0.3546 - categorical_accuracy: 0.8910 - categorical_auc: 0.9741 - val_loss: 0.5891 - val_categorical_accuracy: 0.7885 - val_categorical_auc: 0.9017
+Epoch 15/20
+62/62 [==============================] - 156s 3s/step - loss: 0.1895 - categorical_accuracy: 0.9483 - categorical_auc: 0.9922 - val_loss: 1.3445 - val_categorical_accuracy: 0.6346 - val_categorical_auc: 0.9139
+Epoch 16/20
+62/62 [==============================] - 156s 3s/step - loss: 0.0958 - categorical_accuracy: 0.9667 - categorical_auc: 0.9975 - val_loss: 0.3900 - val_categorical_accuracy: 0.9176 - val_categorical_auc: 0.9647
+Epoch 17/20
+62/62 [==============================] - 156s 3s/step - loss: 0.2698 - categorical_accuracy: 0.9143 - categorical_auc: 0.9847 - val_loss: 5.1165 - val_categorical_accuracy: 0.5797 - val_categorical_auc: 0.7058
+Epoch 18/20
+62/62 [==============================] - 155s 2s/step - loss: 0.1559 - categorical_accuracy: 0.9488 - categorical_auc: 0.9945 - val_loss: 1.0230 - val_categorical_accuracy: 0.7692 - val_categorical_auc: 0.8606
+Epoch 19/20
+62/62 [==============================] - 154s 2s/step - loss: 0.0987 - categorical_accuracy: 0.9777 - categorical_auc: 0.9973 - val_loss: 0.4863 - val_categorical_accuracy: 0.8571 - val_categorical_auc: 0.9275
+Epoch 20/20
+62/62 [==============================] - 155s 3s/step - loss: 0.0588 - categorical_accuracy: 0.9883 - categorical_auc: 0.9987 - val_loss: 0.2879 - val_categorical_accuracy: 0.9011 - val_categorical_auc: 0.9524
+/home/mnguyen/anaconda3/envs/gb/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:2001: UserWarning:
+
+`Model.predict_generator` is deprecated and will be removed in a future version. Please use `Model.predict`, which supports generators.
+
+WARNING:tensorflow:Your input ran out of data; interrupting training. Make sure that your dataset or generator can generate at least `steps_per_epoch * epochs` batches (in this case, 46 batches). You may need to use the repeat() function when building your dataset.
+/home/mnguyen/anaconda3/envs/gb/lib/python3.9/site-packages/tensorflow/python/keras/engine/training.py:2001: UserWarning:
+
+`Model.predict_generator` is deprecated and will be removed in a future version. Please use `Model.predict`, which supports generators.
+
+WARNING:tensorflow:Your input ran out of data; interrupting training. Make sure that your dataset or generator can generate at least `steps_per_epoch * epochs` batches (in this case, 46 batches). You may need to use the repeat() function when building your dataset.
+Traceback (most recent call last):
+  File "/home/mnguyen/projects/aia/pathology_dataset/main.py", line 284, in <module>
+    main()
+  File "/home/mnguyen/projects/aia/pathology_dataset/main.py", line 281, in main
+    train_val(checkpoint_filepaths, args, batch_size, train_size, train_flow_80, val_flow, y_val, y_train, total_train_80, train_flow, total_train, x, y, xS, yS, TEST_CSV, test_dir)
+  File "/home/mnguyen/projects/aia/pathology_dataset/utils/training.py", line 120, in train_val
+    test_imgs = get_augmented_test(test_dir = test_dir, test_generator = test_datagen)
+NameError: name 'test_datagen' is not defined
+(gb) mnguyen@gb4:~/projects/aia/pathology_dataset$ 
