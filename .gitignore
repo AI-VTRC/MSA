@@ -1,0 +1,5 @@
+# dataset due to large size - on minh's local machine
+nn/model/pathology_dataset/dataset/
+
+# saved_model - large size in training
+nn/model/pathology_dataset/saved_model/
