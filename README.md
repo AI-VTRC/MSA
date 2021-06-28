@@ -10,10 +10,11 @@
 
 ### XAI
 
-### Test-bench
-|    	| Model	| Training Accuracy | Testing Accuracy |
-|---	|---	|---	            |---	           |
-|   	|   	|   	            |   	           |
+### [Test-bench](https://github.com/AI-VTRC/MSA/blob/neural_network/nn/model/pathology_dataset/train_result.txt)
+|    	| Model	       | Training Loss | Testing Loss |
+|---	|---	       |---	           |---	          |
+|   1	| EKM  	       | 4.1922        | TBD  	      |
+|   2	| DenseNet 121 | 0.2879  	   | TBD  	      |
 
 ## Reinforcement Learning - Nitish Gorentala
 
