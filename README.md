@@ -1,6 +1,6 @@
 # Model Specific AI Assurance 
 
-## Neural Network - Minh Nguyen
+## Neural Network & Deep Learning - Minh Nguyen
 
 ### Design Pipeline
 ### Model
@@ -11,6 +11,10 @@
 ### XAI
 
 ### Test-bench
+|    	| Model	| Training Accuracy | Testing Accuracy |
+|---	|---	|---	            |---	           |
+|   	|   	|   	            |   	           |
+
 ## Reinforcement Learning - Nitish Gorentala
 
 ## Genetic Algorithms - Ashita Anuga
