@@ -1,0 +1,5 @@
+{
+    "python.autoComplete.extraPaths": ["./aia_msa"],
+    "python.jediEnabled": true,
+    "python.languageServer": "Jedi",
+}
